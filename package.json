@@ -6,7 +6,7 @@
     "react": "16.14.0"
   },
  "scripts": {
-  "postinstall": "FORCE_COLOR=1 wix sync-types",
+  "postinstall": "sh ./sync-types.sh",
   "dev": "wix dev",
   "lint": "eslint ."
   }
