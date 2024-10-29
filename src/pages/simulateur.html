@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur</title>
+    <style>
+        /* Style simplifié pour un simulateur cohérent avec votre site */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f7f4;
+        }
+        h2 {
+            color: #007b4e;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select, button {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 15px;
+            background-color: #007b4e;
+            color: white;
+            cursor: pointer;
+        }
+        #outputResult {
+            margin-top: 20px;
+            color: #007b4e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Simulateur d'Aides</h2>
+    <form id="simulateurForm">
+        <label for="inputAge">Âge :</label>
+        <input type="number" id="inputAge" name="age" required>
+
+        <label for="inputRevenus">Revenus :</label>
+        <input type="number" id="inputRevenus" name="revenus" required>
+
+        <label for="dropdownSituation">Situation :</label>
+        <select id="dropdownSituation" name="situation" required>
+            <option value="etudiant">Étudiant</option>
+            <option value="salarie">Salarié</option>
+            <option value="retraite">Retraité</option>
+        </select>
+
+        <button type="button" onclick="simulerAides()">Simuler mes Aides</button>
+    </form>
+
+    <div id="outputResult"></div>
+
+    <script>
+        async function simulerAides() {
+            // Récupère les valeurs des champs de formulaire
+            const age = document.getElementById('inputAge').value;
+            const revenus = document.getElementById('inputRevenus').value;
+            const situation = document.getElementById('dropdownSituation').value;
+
+            const data = {
+                age: parseInt(age, 10),
+                revenus: parseFloat(revenus),
+                situation: situation
+            };
+
+            // Appel à l'API Hugging Face ou calcul local (exemple simplifié sans API)
+            const resultat = await obtenirResultat(data);
+
+            // Affiche le résultat
+            document.getElementById('outputResult').textContent = resultat;
+        }
+
+        async function obtenirResultat(data) {
+            // Simulation d'une réponse (remplacer avec un appel API si nécessaire)
+            return `Pour un ${data.situation} de ${data.age} ans avec des revenus de ${data.revenus} €, vous pouvez potentiellement obtenir des aides.`;
+        }
+    </script>
+</body>
+</html>
