@@ -5,9 +5,9 @@
     "eslint": "^8.25.0",
     "react": "16.14.0"
   },
-  "scripts": {
-    "postinstall": "wix sync-types --force",
-    "dev": "wix dev",
-    "lint": "eslint ."
+ "scripts": {
+  "postinstall": "FORCE_COLOR=1 wix sync-types",
+  "dev": "wix dev",
+  "lint": "eslint ."
   }
 }
